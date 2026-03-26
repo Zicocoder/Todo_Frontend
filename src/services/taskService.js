@@ -33,6 +33,23 @@ export const taskService = {
         })
         return response.data;
     },
+    // Update a existing todo item by id
+    update: async (id, todoDto, files = []) => {
+        const formData = new FormData();
+        formData.append('todo', new Blob([JSON.stringify(todoDto)], {type: 'application/json'}));
+        files.forEach(file => formData.append('files', file));
+        const response = await axios.put(`${API_URL}/todo/${id}`, formData, {
+            headers: authHeader()
+        })
+        return response.data;
+    },
+//deletes todo items
+    delete: async (id) => {
+        const response = await axios.delete(`${API_URL}/todo/${id}`, {
+            headers: authHeader()
+        })
+
+    }
 }
 
 
