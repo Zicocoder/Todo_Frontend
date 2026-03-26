@@ -15,8 +15,7 @@ export const taskService = {
             headers: authHeader()
         })
         return response.data;
-    },
-    getById: async (id) => {
+    }, getById: async (id) => {
         const response = await axios.get(`${API_URL}/todo/${id}`, {
             headers: authHeader()
         })
@@ -32,8 +31,7 @@ export const taskService = {
             headers: authHeader()
         })
         return response.data;
-    },
-    // Update a existing todo item by id
+    }, // Update a existing todo item by id
     update: async (id, todoDto, files = []) => {
         const formData = new FormData();
         formData.append('todo', new Blob([JSON.stringify(todoDto)], {type: 'application/json'}));
@@ -42,8 +40,7 @@ export const taskService = {
             headers: authHeader()
         })
         return response.data;
-    },
-//deletes todo items
+    }, //deletes todo items
     delete: async (id) => {
         const response = await axios.delete(`${API_URL}/todo/${id}`, {
             headers: authHeader()
