@@ -1,10 +1,17 @@
 
-import React from 'react';
 import './Task.css';
 import Sidebar from './Sidebar';
 import Header from "./Header.jsx";
+import React, { useState, useEffect } from 'react';
+import { taskService } from '../services/taskService';
 
 const Task = () => {
+    const [tasks, setTasks] = useState([])
+    useEffect(() => {
+        taskService.getAll().then(data => {
+            setTasks(data)
+        })
+    }, [])
 
     // todo*: make this component functional by implementing state management and API calls
 
@@ -191,3 +198,4 @@ const Task = () => {
 };
 
 export default Task;
+
