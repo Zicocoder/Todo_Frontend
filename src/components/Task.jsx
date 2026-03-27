@@ -12,14 +12,14 @@ const Task = () => {
             setTasks(data)
         })
     }, [])
-
+// stores input values that gets sent to API
 const [formData, setFormData] = useState({
     title: '',
     description: '',
     dueDate: '',
     personId: ''
 })
-
+// defines submit button and prevents reload if no input.
     const handleSubmit = (e) => {
         e.preventDefault()
 
@@ -27,7 +27,7 @@ const [formData, setFormData] = useState({
 
 
 
-    // todo*: make this component functional by implementing state management and API calls
+    // Made this component functional by implementing state management and API calls
 
     return (
 
