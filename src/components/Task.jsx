@@ -19,11 +19,22 @@ const [formData, setFormData] = useState({
     dueDate: '',
     personId: ''
 })
-// defines submit button and prevents reload if no input.
+// defines submit button, stops the reload, creates the task,refreshes the list and resets form.
+
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        }
+        taskService.create(formData).then(() => {
+
+            taskService.getAll().then( data => {
+                setTasks(data)
+            })
+
+            setFormData({ title: '', description: '', dueDate: '', personId: '' })
+
+        })
+    }
+
 
 
 
