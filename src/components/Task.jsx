@@ -13,9 +13,24 @@ const Task = () => {
         })
     }, [])
 
+const [formData, setFormData] = useState({
+    title: '',
+    description: '',
+    dueDate: '',
+    personId: ''
+})
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        }
+
+
+
     // todo*: make this component functional by implementing state management and API calls
 
     return (
+
         <div className="dashboard-layout">
             <Sidebar isOpen={false} onClose={() => {}} />
             <main className="dashboard-main">
@@ -23,6 +38,7 @@ const Task = () => {
                     title="Tasks"
                     subtitle="Manage and organize your tasks"
                     onToggleSidebar={() => {}}
+
                 />
 
                 <div className="dashboard-content">
@@ -31,26 +47,48 @@ const Task = () => {
                             <div className="card shadow-sm task-form-section">
                                 <div className="card-body">
                                     <h2 className="card-title mb-4">Add New Task</h2>
-                                    <form id="todoForm">
+                                    <form id="todoForm" onSubmit= {handleSubmit}>
                                         <div className="mb-3">
                                             <label htmlFor="todoTitle" className="form-label">Title</label>
-                                            <input type="text" className="form-control" id="todoTitle" required />
+                                            <input
+                                            type="text"
+                                            className="form-control"
+                                            id="todoTitle"
+                                            required
+                                             value={formData.title}
+                                             onChange= {(e) => setFormData ({...formData, title: e.target.value})} />
                                         </div>
+
+
+
                                         <div className="mb-3">
                                             <label htmlFor="todoDescription" className="form-label">Description</label>
-                                            <textarea className="form-control" id="todoDescription" rows="3"></textarea>
+                                            <textarea
+                                            className="form-control"
+                                            id="todoDescription" rows="3"
+                                            value={formData.description}
+                                            onChange= {(e) => setFormData ({...formData, description: e.target.value})}>
+                                            </textarea>
                                         </div>
                                         <div className="row">
                                             <div className="col-md-6 mb-3">
                                                 <label htmlFor="todoDueDate" className="form-label">Due Date</label>
-                                                <input type="datetime-local" className="form-control" id="todoDueDate" />
+                                                <input
+                                                type="datetime-local"
+                                                className="form-control"
+                                                id="todoDueDate"
+                                                value={formData.dueDate}
+                                                onChange= {(e) => setFormData ({...formData, dueDate: e.target.value})} />
                                             </div>
                                             <div className="col-md-6 mb-3">
                                                 <label htmlFor="todoPerson" className="form-label">Assign to Person</label>
-                                                <select className="form-select" id="todoPerson">
+                                                <select className="form-select" id="todoPerson"
+                                                value={formData.personId}
+                                                onChange= {(e) => setFormData ({...formData, personId: e.target.value})}>
                                                     <option value="">-- Select Person (Optional) --</option>
                                                     <option value="1">Mehrdad Javan</option>
                                                     <option value="2">Simon Elbrink</option>
+                                                    <option value="3">Zackaria Azzoug</option>
                                                 </select>
                                             </div>
                                         </div>
