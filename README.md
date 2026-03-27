@@ -36,6 +36,11 @@
 
 - Implement APIs needed for dashboard.
 
+
+
+
+<img width="1472" height="2850" alt="Gemini_Generated_Image_kegunjkegunjkegu" src="https://github.com/user-attachments/assets/74856f33-0b91-4ce3-ab32-f058fc02df87" />
+
 - Complete dashboard UI and logic.
 
 - Add extra features to enhance usability.
