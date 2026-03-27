@@ -50,11 +50,13 @@ const [formData, setFormData] = useState({
     }
 // Marks tasks as completed
  const handleComplete = (id) => {
-        taskService.update(id, { completed: true }, []).then(() => {
+        taskService.getById(id).then(task => {
+        taskService.update(id, { ...task, completed: true }, []).then(() => {
             taskService.getAll().then( data => {
                             setTasks(data)
             })
         })
+    })
 }
 
 
