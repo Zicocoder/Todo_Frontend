@@ -176,7 +176,9 @@ const [formData, setFormData] = useState({
                                                                 <small className="text-muted me-2">
                                                                     <i className="bi bi-calendar-event"></i>{task.dueDate}
                                                                 </small>
-                                                                <span className="badge bg-warning text-dark me-2">{task.completed ? "Completed" : "Pending"}</span>
+                                                                <span className={`badge rounded-pill ${task.completed ? "bg-success" : "bg-warning text-dark"} me-2`}>
+                                                                    <i className={`bi ${task.completed ? "bi-check-circle-fill" : "bi-clock"} me-1`}></i>
+                                                                                  {task.completed ? "Completed" : "Pending"}</span>
                                                             </div>
                                                         </div>
                                                         <div className="btn-group ms-3">
