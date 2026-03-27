@@ -32,8 +32,25 @@ const [formData, setFormData] = useState({
 
             setFormData({ title: '', description: '', dueDate: '', personId: '' })
 
+
+
         })
+
     }
+// Gives delete button functionality
+    const handleDelete = (id) => {
+        taskService.delete(id).then(() => {
+            taskService.getAll().then( data => {
+                            setTasks(data)
+            })
+
+
+        })
+
+    }
+
+
+
 
 
 
@@ -155,9 +172,11 @@ const [formData, setFormData] = useState({
                                                         </div>
                                                         <div className="btn-group ms-3">
                                                             <button className="btn btn-outline-success btn-sm" title="Complete">
+
                                                                 <i className="bi bi-check-lg"></i>
                                                             </button>
-                                                            <button className="btn btn-outline-danger btn-sm" title="Delete">
+                                                            <button className="btn btn-outline-danger btn-sm" title="Delete"
+                                                            onClick={() => handleDelete(task.id)}>
                                                                 <i className="bi bi-trash"></i>
                                                             </button>
                                                         </div>
