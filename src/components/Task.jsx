@@ -48,7 +48,14 @@ const [formData, setFormData] = useState({
         })
 
     }
-
+// Marks tasks as completed
+ const handleComplete = (id) => {
+        taskService.update(id, { completed: true }, []).then(() => {
+            taskService.getAll().then( data => {
+                            setTasks(data)
+            })
+        })
+}
 
 
 
@@ -171,7 +178,8 @@ const [formData, setFormData] = useState({
                                                             </div>
                                                         </div>
                                                         <div className="btn-group ms-3">
-                                                            <button className="btn btn-outline-success btn-sm" title="Complete">
+                                                            <button className="btn btn-outline-success btn-sm" title="Complete"
+                                                              onClick={() => handleComplete(task.id)}>
 
                                                                 <i className="bi bi-check-lg"></i>
                                                             </button>
