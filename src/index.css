@@ -1,100 +1,129 @@
-
 :root {
-    /* Colors */
-    --primary-color: #2b2d42;
-    --primary-light: #363856;
-    --primary-dark: #1d1e2f;
-    --secondary-color: #8d99ae;
-    --secondary-light: #a5b0c1;
-    --secondary-dark: #6b7689;
-    --background-color: #edf2f4;
-    --background-light: #ffffff;
-    --text-light: #ffffff;
+    /* Design system: Flat Design — Plus Jakarta Sans — Professional Blue */
+    --color-primary: #2563EB;
+    --color-primary-hover: #1D4ED8;
+    --color-primary-light: #EFF6FF;
+    --color-secondary: #3B82F6;
+    --color-accent: #059669;
+    --color-background: #F8FAFC;
+    --color-surface: #FFFFFF;
+    --color-foreground: #0F172A;
+    --color-muted: #F1F5FD;
+    --color-muted-text: #64748B;
+    --color-border: #E4ECFC;
+    --color-destructive: #DC2626;
+    --color-destructive-light: #FEF2F2;
+    --color-warning: #D97706;
+    --color-warning-light: #FFFBEB;
+    --color-success: #059669;
+    --color-success-light: #ECFDF5;
+    --color-info: #2563EB;
+    --color-info-light: #EFF6FF;
+    --color-ring: #2563EB;
 
-    /* Social Colors */
-    --google-color: #ea4335;
-    --github-color: #24292e;
-    --twitter-color: #1da1f2;
+    /* Legacy aliases — kept so components still compile */
+    --primary-color: var(--color-foreground);
+    --primary-light: #1E293B;
+    --primary-dark: #0F172A;
+    --secondary-color: var(--color-muted-text);
+    --background-color: var(--color-background);
+    --background-light: var(--color-surface);
+    --border-color: var(--color-border);
+    --shadow-color: rgba(37, 99, 235, 0.06);
+    --overlay-light: rgba(37, 99, 235, 0.06);
 
-    /* Utility Colors */
-    --border-color: rgba(141, 153, 174, 0.2);
-    --shadow-color: rgba(43, 45, 66, 0.08);
-    --overlay-light: rgba(237, 242, 244, 0.1);
+    /* Spacing scale (4pt) */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-10: 40px;
+
+    /* Radius */
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+
+    /* Transition */
+    --transition-fast: 150ms ease;
+    --transition-base: 200ms ease;
 }
 
-/* Reset and Base Styles */
-* {
+/* Reset */
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 html, body, #root {
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     overflow-x: hidden;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, sans-serif;
-    color: var(--primary-color);
-    background-color: var(--background-color);
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 16px;
+    color: var(--color-foreground);
+    background-color: var(--color-background);
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-
-
-
-/* Mobile brand styles */
+/* Mobile brand bar — flat, no gradient */
 .mobile-brand {
     align-items: center;
-    background: linear-gradient(135deg, var(--primary-color), #1d1e2f);
-    border-bottom: 1px solid rgba(237, 242, 244, 0.1);
+    background: var(--color-primary);
+    border-bottom: 1px solid var(--color-primary-hover);
     display: flex;
-    gap: 0.5rem;
+    gap: var(--space-2);
     justify-content: space-between;
     margin: 0;
-    padding: 1rem;
+    padding: var(--space-4);
 }
 
 .mobile-brand .brand-content {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: var(--space-3);
 }
 
 .mobile-brand .brand-content i,
 .mobile-brand i {
-    border-radius: 12px;
+    border-radius: var(--radius-sm);
     color: #ffffff;
-    font-size: 2rem;
-    padding: 0.75rem;
+    font-size: 1.5rem;
+    padding: var(--space-2);
+    background: rgba(255, 255, 255, 0.15);
 }
 
 .mobile-brand .brand-content h4,
 .mobile-brand h4 {
     color: #ffffff;
-    font-size: 1.5rem;
+    font-size: 1.125rem;
     font-weight: 600;
     margin: 0;
 }
 
 .sidebar-toggle {
     border: none;
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
+    background: transparent;
     color: #ffffff;
     cursor: pointer;
-    font-size: 1.5rem;
-    padding: 0.5rem;
+    font-size: 1.25rem;
+    padding: var(--space-2);
     display: none;
-    transition: background-color 0.3s ease;
+    transition: background var(--transition-fast);
 }
 
 .sidebar-toggle:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
 }
 
 @media (max-width: 768px) {
@@ -103,17 +132,18 @@ body {
     }
 }
 
-
-/* Add to index.css */
+/* Spinner */
 .spin {
-    animation: spin 1s linear infinite;
+    animation: spin 0.8s linear infinite;
 }
 
 @keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+/* Focus ring */
+:focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
 }
