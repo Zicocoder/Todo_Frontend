@@ -148,7 +148,7 @@ const Dashboard = () => {
             <main className="dashboard-main">
                 <Header
                     title="Dashboard"
-                    subtitle="Welcome back! Here's your tasks overview"
+                    subtitle="Tasks sorted by due date"
                     onToggleSidebar={() => setIsSidebarOpen(true)}
                 />
 

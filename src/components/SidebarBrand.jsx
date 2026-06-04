@@ -15,21 +15,21 @@ const SidebarBrand = () => {
 
                 {/* Feature Highlights */}
                 <div className="features-section">
-                    <h2>Welcome Back!</h2>
-                    <p className="feature-text">Organize your tasks and boost your productivity</p>
+                    <h2>Get things done.</h2>
+                    <p className="feature-text">Tasks, deadlines, and team progress in one place.</p>
 
                     <div className="feature-items">
                         <div className="feature-item">
                             <i className="bi bi-check2-circle"></i>
-                            <span>Stay organized with task lists</span>
+                            <span>Task lists that stay current</span>
                         </div>
                         <div className="feature-item">
                             <i className="bi bi-calendar-check"></i>
-                            <span>Track deadlines effectively</span>
+                            <span>Deadline tracking across teams</span>
                         </div>
                         <div className="feature-item">
                             <i className="bi bi-graph-up"></i>
-                            <span>Monitor your progress</span>
+                            <span>Progress you can actually read</span>
                         </div>
                     </div>
                 </div>
