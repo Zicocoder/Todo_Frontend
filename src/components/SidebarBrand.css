@@ -1,14 +1,13 @@
-/* Login brand panel — Flat Design */
 .sidebar-brand {
-    background: var(--color-primary);
-    height: 100dvh;
-    color: #ffffff;
+    background: linear-gradient(135deg, var(--primary-color), #1d1e2f);
+    height: 100vh;
+    color: var(--background-color);
     position: relative;
     overflow: hidden;
 }
 
 .sidebar-content {
-    padding: var(--space-8);
+    padding: 1.75rem;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -18,125 +17,129 @@
 }
 
 .brand-section {
-    margin-bottom: var(--space-10);
+    margin-bottom: 2.5rem;
 }
 
 .logo-container {
     display: flex;
     align-items: center;
-    gap: var(--space-3);
+    gap: 0.75rem;
 }
 
 .logo-container i {
-    font-size: 1.5rem;
-    padding: var(--space-2);
-    border-radius: var(--radius-sm);
-    background: rgba(255, 255, 255, 0.15);
-    color: #ffffff;
+    font-size: 1.75rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
 }
 
 .logo-container h4 {
-    font-size: 1.125rem;
-    font-weight: 700;
+    font-size: 1.25rem;
+    font-weight: 500;
     margin: 0;
-    color: #ffffff;
-    letter-spacing: -0.01em;
 }
 
 .features-section {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    gap: var(--space-6);
+    gap: 1.5rem;
 }
 
 .features-section h2 {
-    font-size: 1.625rem;
-    font-weight: 700;
-    margin-bottom: var(--space-2);
-    color: #ffffff;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    background: linear-gradient(90deg, #fff, rgba(237, 242, 244, 0.9));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .feature-text {
-    font-size: 0.9375rem;
-    color: rgba(255, 255, 255, 0.75);
-    margin-bottom: var(--space-6);
-    line-height: 1.6;
+    font-size: 0.875rem;
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
 }
 
 .feature-items {
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
+    gap: 1rem;
 }
 
 .feature-item {
     display: flex;
     align-items: center;
-    gap: var(--space-3);
-    padding: var(--space-3) var(--space-4);
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: var(--radius-sm);
-    transition: background var(--transition-fast);
-    min-height: 44px;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: rgba(237, 242, 244, 0.05);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .feature-item:hover {
-    background: rgba(255, 255, 255, 0.16);
+    transform: translateX(8px);
+    background: rgba(237, 242, 244, 0.1);
 }
 
 .feature-item i {
     font-size: 1rem;
-    color: rgba(255, 255, 255, 0.9);
-    flex-shrink: 0;
+    color: var(--background-color);
 }
 
 .feature-item span {
     font-size: 0.875rem;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.9);
 }
 
 .sidebar-footer {
     font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.45);
+    color: var(--secondary-color);
     text-align: center;
-    padding-top: var(--space-4);
+    padding-top: 1.5rem;
 }
 
-/* Subtle accent shape — no gradient, just opacity */
 .sidebar-brand::before {
     content: '';
     position: absolute;
-    bottom: -80px;
-    right: -80px;
-    width: 260px;
-    height: 260px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.06);
-    pointer-events: none;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(141, 153, 174, 0.1), transparent 50%);
+}
+
+@media (min-width: 1200px) {
+    .sidebar-content {
+        padding: 2rem;
+    }
 }
 
 @media (max-height: 800px) {
     .sidebar-content {
-        padding: var(--space-6);
+        padding: 1.5rem;
     }
 
     .brand-section {
-        margin-bottom: var(--space-8);
+        margin-bottom: 2rem;
     }
 
     .feature-items {
-        gap: var(--space-2);
+        gap: 0.75rem;
     }
 
     .feature-item {
-        padding: var(--space-2) var(--space-3);
+        padding: 0.625rem;
+    }
+
+    .features-section {
+        gap: 1.25rem;
     }
 
     .features-section h2 {
-        font-size: 1.375rem;
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
     }
 }
